@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #DDEEFF;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #003366;
+}
+
+h2 {
+    color: #004080;
+}
+
+input {
+    width: 300px;
+    padding: 8px;
+    margin: 3px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #0066CC;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #004C99;
+}
+
+#registros {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid gray;
+}
