@@ -1,126 +1,132 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Personas Desaparecidas V4</title>
+    <title>Sistema de Personas Desaparecidas</title>
 
     <link rel="stylesheet" href="style.css">
 
     <link rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
 </head>
+
 <body>
 
-<header>
+    <header>
 
-    <h1>🚨 Sistema de Personas Desaparecidas V4</h1>
+        <h1>🚨 Sistema de Personas Desaparecidas</h1>
 
-    <button id="modoOscuroBtn">
-        🌙 Modo Oscuro
-    </button>
+        <div class="estadisticas">
 
-</header>
+            <div class="estadistica">
+                <h3>Total</h3>
+                <p id="totalPersonas">0</p>
+            </div>
 
-<section class="estadisticas">
+            <div class="estadistica">
+                <h3>Hombres</h3>
+                <p id="totalHombres">0</p>
+            </div>
 
-    <div class="card-estadistica">
-        <h3>Total</h3>
-        <p id="totalPersonas">0</p>
-    </div>
+            <div class="estadistica">
+                <h3>Mujeres</h3>
+                <p id="totalMujeres">0</p>
+            </div>
 
-    <div class="card-estadistica">
-        <h3>Hombres</h3>
-        <p id="totalHombres">0</p>
-    </div>
+        </div>
 
-    <div class="card-estadistica">
-        <h3>Mujeres</h3>
-        <p id="totalMujeres">0</p>
-    </div>
+    </header>
 
-</section>
+    <section class="formulario">
 
-<section class="formulario">
+        <h2>Registrar Persona</h2>
 
-    <h2>Registrar Persona</h2>
+        <input type="text" id="nombre" placeholder="Nombre Completo">
 
-    <input type="text" id="nombre" placeholder="Nombre Completo">
+        <input type="number" id="edad" placeholder="Edad">
 
-    <input type="number" id="edad" placeholder="Edad">
+        <select id="sexo">
+            <option value="">Seleccione Sexo</option>
+            <option>Masculino</option>
+            <option>Femenino</option>
+        </select>
 
-    <select id="sexo">
-        <option value="">Seleccione Sexo</option>
-        <option>Masculino</option>
-        <option>Femenino</option>
-    </select>
+        <input type="text" id="estatura" placeholder="Estatura">
 
-    <input type="text" id="estatura" placeholder="Estatura">
+        <input type="text" id="peso" placeholder="Peso">
 
-    <input type="text" id="peso" placeholder="Peso">
+        <input type="text" id="ojos" placeholder="Color de Ojos">
 
-    <input type="text" id="ojos" placeholder="Color de Ojos">
+        <input type="text" id="cabello" placeholder="Color de Cabello">
 
-    <input type="text" id="cabello" placeholder="Color de Cabello">
+        <input type="text" id="senas" placeholder="Señas Particulares">
 
-    <input type="text" id="senas" placeholder="Señas Particulares">
+        <input type="text" id="vestimenta" placeholder="Vestimenta">
 
-    <input type="text" id="vestimenta" placeholder="Vestimenta">
+        <input type="date" id="fecha">
 
-    <input type="date" id="fecha">
+        <input type="text" id="lugar" placeholder="Lugar de Desaparición">
 
-    <input type="text" id="lugar" placeholder="Lugar de Desaparición">
+        <input type="text" id="telefono" placeholder="Teléfono">
 
-    <input type="text" id="telefono" placeholder="Teléfono">
+        <label>Fotografía:</label>
 
-    <label>Fotografía:</label>
+        <input type="file" id="foto" accept="image/*">
 
-    <input type="file" id="foto" accept="image/*">
+        <button onclick="registrar()">
+            Registrar Persona
+        </button>
 
-    <button onclick="registrar()">
-        Registrar Persona
-    </button>
+    </section>
 
-</section>
+    <section class="busqueda">
 
-<section class="busqueda">
+        <h2>Buscar Persona</h2>
 
-    <h2>Buscar Persona</h2>
+        <input
+            type="text"
+            id="buscarNombre"
+            placeholder="Buscar por nombre">
 
-    <input
-        type="text"
-        id="buscarNombre"
-        placeholder="Buscar por nombre"
-    >
+    </section>
 
-</section>
+    <section class="mapa-section">
 
-<section class="mapa-section">
+        <h2>Mapa</h2>
 
-    <h2>Mapa de Ubicaciones</h2>
+        <p>
+            Haz clic en el mapa para seleccionar la ubicación.
+        </p>
 
-    <p>
-        Haz clic en el mapa para elegir una ubicación.
-    </p>
+        <div id="map"></div>
 
-    <div id="map"></div>
+    </section>
 
-</section>
+    <section class="registros-section">
 
-<section>
+        <div class="titulo-registros">
 
-    <h2>Personas Registradas</h2>
+            <h2>Personas Registradas</h2>
 
-    <div id="registros"></div>
+            <button onclick="generarPDF()">
+                📄 Generar PDF
+            </button>
 
-</section>
+        </div>
 
-<script
-src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-</script>
+        <div id="registros"></div>
 
-<script src="script.js"></script>
+    </section>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
